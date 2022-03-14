@@ -1,41 +1,16 @@
-import logo from './images/header/logo.svg'
-import './index.css';
+import Header from './Header';
+import Main from './Main';
+import Footer from './Footer';
+import '../index.css';
 
 function App() {
   return (
     <div className="App">
-      
 
       <div className="page">
-        <header className="header section">
-            <img src={logo} alt="Логотип сайта" className="header__logo" />
-        </header>
-
-        <main className="content">
-            <section className="profile section">
-                <div className="profile__container">
-                    <div className="profile__avatar-container">
-                        <img src="<%=require('./images/profile/avatar.jpg')%>" alt="Аватарка" className="profile__avatar" />
-                    </div>
-                    <div className="profile__info">
-                        <h1 className="profile__title">Марина</h1>
-                        <button className="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
-                        <p className="profile__subtitle">Кошечка</p>
-                    </div>
-                </div>
-                <button className="profile__add-button" type="button" aria-label="Добавить карточку"></button>
-            </section>
-
-            <section className="elements section" aria-label="Фото-карточки мест, где я был">
-                <ul className="elements__cards">
-
-                </ul>
-            </section>
-        </main>
-
-        <footer className="footer section">
-            <p className="footer__copyright">&copy; 2021 Mesto Russia</p>
-        </footer>
+        <Header />
+        <Main />
+        <Footer />
 
         <div className="popup popup_type_edit-info">
             <div className="popup__container">
