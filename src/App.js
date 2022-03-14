@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './images/header/logo.svg'
+import './index.css';
 
 function App() {
   return (
@@ -8,7 +8,7 @@ function App() {
 
       <div className="page">
         <header className="header section">
-            <img src="<%=require('./images/header/logo.svg')%>" alt="Логотип сайта" className="header__logo" />
+            <img src={logo} alt="Логотип сайта" className="header__logo" />
         </header>
 
         <main className="content">
@@ -18,9 +18,9 @@ function App() {
                         <img src="<%=require('./images/profile/avatar.jpg')%>" alt="Аватарка" className="profile__avatar" />
                     </div>
                     <div className="profile__info">
-                        <h1 className="profile__title"></h1>
+                        <h1 className="profile__title">Марина</h1>
                         <button className="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
-                        <p className="profile__subtitle"></p>
+                        <p className="profile__subtitle">Кошечка</p>
                     </div>
                 </div>
                 <button className="profile__add-button" type="button" aria-label="Добавить карточку"></button>

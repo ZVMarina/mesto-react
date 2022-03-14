@@ -1,0 +1,16 @@
+.header__logo {
+    position: relative;
+}
+
+@media all and (max-width: 962px) {
+    .header__logo {
+        padding-left: 27px;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .header__logo {
+        width: 104px;
+        height: 24px;
+    }
+}

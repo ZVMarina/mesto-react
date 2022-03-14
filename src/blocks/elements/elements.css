@@ -1,0 +1,10 @@
+.elements {
+    padding-bottom: 67px;
+}
+
+@media all and (max-width: 654px) {
+    .elements {
+        padding-bottom: 48px;
+        max-width: 320px;
+    }
+}
