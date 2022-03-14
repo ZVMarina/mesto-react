@@ -23,6 +23,12 @@ function App() {
         setIsAddPlacePopupOpen(true);
     }
 
+    function closeAllPopups() {
+        setIsEditAvatarPopupOpen(false);
+        setIsEditProfilePopupOpen(false);
+        setIsAddPlacePopupOpen(false);
+    }
+
     return (
         <div className="App">
 
@@ -32,12 +38,14 @@ function App() {
                     onEditAvatar={onEditAvatar}
                     onEditProfile={onEditProfile}
                     onAddPlace={onAddPlace}
+                    closeAllPopups={closeAllPopups}
                 />
                 <Footer />
                 <PopupWithForm
                     name="edit-info"
                     title="Редактировать профиль"
                     isOpen={isEditProfilePopupOpen}
+                    onClose={closeAllPopups}
                 >
                     <input id="name-input" type="text" className="form__input form__input_value_name" name="name"
                         minlength="2" maxlength="40" required />
@@ -51,6 +59,7 @@ function App() {
                     name="add-card"
                     title="Новое место"
                     isOpen={isAddPlacePopupOpen}
+                    onClose={closeAllPopups}
                 >
                     <input id="place-input" type="text" className="form__input form__input_value_place" name="name"
                         placeholder="Название" minlength="2" maxlength="30" required />
@@ -64,6 +73,7 @@ function App() {
                     name="change-avatar"
                     title="Обновить аватар"
                     isOpen={isEditAvatarPopupOpen}
+                    onClose={closeAllPopups}
                 >
                     <input id="profile-input" type="url" className="form__input form__input_value_link" name="link"
                         placeholder="Ссылка на аватар" required />
