@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
@@ -6,16 +7,37 @@ import ImagePopup from './ImagePopup';
 import '../index.css';
 
 function App() {
+    const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
+    const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
+    const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+
+    function onEditAvatar() {
+        setIsEditAvatarPopupOpen(true);
+    }
+
+    function onEditProfile() {
+        setIsEditProfilePopupOpen(true);
+    }
+
+    function onAddPlace() {
+        setIsAddPlacePopupOpen(true);
+    }
+
     return (
         <div className="App">
 
             <div className="page">
                 <Header />
-                <Main />
+                <Main
+                    onEditAvatar={onEditAvatar}
+                    onEditProfile={onEditProfile}
+                    onAddPlace={onAddPlace}
+                />
                 <Footer />
                 <PopupWithForm
                     name="edit-info"
                     title="Редактировать профиль"
+                    isOpen={isEditProfilePopupOpen}
                 >
                     <input id="name-input" type="text" className="form__input form__input_value_name" name="name"
                         minlength="2" maxlength="40" required />
@@ -28,6 +50,7 @@ function App() {
                 <PopupWithForm
                     name="add-card"
                     title="Новое место"
+                    isOpen={isAddPlacePopupOpen}
                 >
                     <input id="place-input" type="text" className="form__input form__input_value_place" name="name"
                         placeholder="Название" minlength="2" maxlength="30" required />
@@ -40,6 +63,7 @@ function App() {
                 <PopupWithForm
                     name="change-avatar"
                     title="Обновить аватар"
+                    isOpen={isEditAvatarPopupOpen}
                 >
                     <input id="profile-input" type="url" className="form__input form__input_value_link" name="link"
                         placeholder="Ссылка на аватар" required />
