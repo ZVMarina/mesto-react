@@ -46,16 +46,16 @@ function App() {
             </div>
         </div>
 
-        <div className="popup popup_type_change-profile">
+        <div className="popup popup_type_change-avatar">
             <div className="popup__container">
                 <h2 className="popup__title">Обновить аватар</h2>
-                <form className="form form_type_change-profile" name="change-profile">
+                <form className="form form_type_change-avatar" name="change-avatar">
                     <input id="profile-input" type="url" className="form__input form__input_value_link" name="link"
                         placeholder="Ссылка на аватар" required />
                     <span className="profile-input-error form__input-error"></span>
-                    <button className="form__main-button form__main-button_place_change-profile" type="submit">Сохранить</button>
+                    <button className="form__main-button form__main-button_place_change-avatar" type="submit">Сохранить</button>
                 </form>
-                <button className="popup__close-button popup__close-button_place_change-profile" type="button"
+                <button className="popup__close-button popup__close-button_place_change-avatar" type="button"
                     aria-label="Закрыть"></button>
             </div>
         </div>
