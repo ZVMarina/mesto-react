@@ -48,10 +48,10 @@ function App() {
                     onClose={closeAllPopups}
                 >
                     <input id="name-input" type="text" className="form__input form__input_value_name" name="name"
-                        minlength="2" maxlength="40" required />
+                        minLength="2" maxLength="40" required />
                     <span className="name-input-error form__input-error"></span>
-                    <input id="job-input" type="text" className="form__input form__input_value_job" name="job" minlength="2"
-                        maxlength="200" required />
+                    <input id="job-input" type="text" className="form__input form__input_value_job" name="job" minLength="2"
+                        maxLength="200" required />
                     <span className="job-input-error form__input-error"></span>
                 </PopupWithForm>
 
@@ -62,7 +62,7 @@ function App() {
                     onClose={closeAllPopups}
                 >
                     <input id="place-input" type="text" className="form__input form__input_value_place" name="name"
-                        placeholder="Название" minlength="2" maxlength="30" required />
+                        placeholder="Название" minLength="2" maxLength="30" required />
                     <span className="place-input-error form__input-error"></span>
                     <input id="url-input" type="url" className="form__input form__input_value_link" name="link"
                         placeholder="Ссылка на картинку" required />
