@@ -10,6 +10,7 @@ function App() {
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
+    const [selectedCard, setSelectedCard] = React.useState(false);
 
     function onEditAvatar() {
         setIsEditAvatarPopupOpen(true);
@@ -27,6 +28,11 @@ function App() {
         setIsEditAvatarPopupOpen(false);
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
+        setSelectedCard(false);
+    }
+
+    function handleCardClick(card) {
+        setSelectedCard(card);
     }
 
     return (
@@ -39,6 +45,7 @@ function App() {
                     onEditProfile={onEditProfile}
                     onAddPlace={onAddPlace}
                     closeAllPopups={closeAllPopups}
+                    onCardClick={handleCardClick}
                 />
                 <Footer />
                 <PopupWithForm
@@ -80,7 +87,10 @@ function App() {
                     <span className="profile-input-error form__input-error"></span>
                 </PopupWithForm>
 
-                <ImagePopup />
+                <ImagePopup
+                    onClose={closeAllPopups}
+                    card={selectedCard}
+                />
 
                 <PopupWithForm
                     name="confirm"
@@ -89,25 +99,6 @@ function App() {
                     <button className="popup__main-button" type="submit">Да</button>
                 </PopupWithForm>
             </div>
-
-            <template className="cards-template">
-                <li className="card">
-                    <img className="card__image" />
-                    <div className="card__container">
-                        <h2 className="card__title"></h2>
-                        <div className="card__like-container">
-                            <button className="card__button card__button_type_delete" type="button"
-                                aria-label="Удалить карточку"></button>
-                            <button className="card__button card__button_type_like" type="button"
-                                aria-label="Поставить лайк"></button>
-                            <span className="card__like-counter"></span>
-                        </div>
-                    </div>
-                </li>
-            </template>
-
-
-
         </div>
     );
 }
