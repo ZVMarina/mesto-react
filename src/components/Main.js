@@ -27,7 +27,7 @@ function Main(props) {
             .catch((error) => {
                 console.log('error: ', error);
             })
-    })
+    }, [])
 
     return (
         <main className="content" >
