@@ -4,13 +4,12 @@ import Main from './Main';
 import Footer from './Footer';
 import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
-import '../index.css';
 
 function App() {
     const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
     const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
     const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
-    const [selectedCard, setSelectedCard] = React.useState(false);
+    const [selectedCard, setSelectedCard] = React.useState({});
 
     function onEditAvatar() {
         setIsEditAvatarPopupOpen(true);
@@ -28,7 +27,7 @@ function App() {
         setIsEditAvatarPopupOpen(false);
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
-        setSelectedCard(false);
+        setSelectedCard({});
     }
 
     function handleCardClick(card) {
@@ -36,8 +35,6 @@ function App() {
     }
 
     return (
-        <div className="App">
-
             <div className="page">
                 <Header />
                 <Main
@@ -99,7 +96,6 @@ function App() {
                     <button className="popup__main-button" type="submit">Да</button>
                 </PopupWithForm>
             </div>
-        </div>
     );
 }
 
