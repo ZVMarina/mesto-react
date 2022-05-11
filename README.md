@@ -12,7 +12,7 @@ Training project (Yandex Practicum). It consists of 4 blocks. The file structure
 
 * HTML
 * CSS
-* JavaScript
+* React (Class, Hooks)
 
 ### Link to GitHub Pages
 
