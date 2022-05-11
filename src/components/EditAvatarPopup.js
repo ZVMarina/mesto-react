@@ -3,17 +3,17 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import PopupWithForm from "./PopupWithForm";
 
 const EditAvatarPopup = (props) => {
-  const avatarRef = React.useRef();
+  const avatarInpurRef = React.useRef();
 
   const handleChangeAvatar = (evt) => {
-    avatarRef.current.value = evt.target.value;
+    avatarInpurRef.current.value = evt.target.value;
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
 
     props.onUpdateAvatar({
-      avatar: avatarRef.current.value,
+      avatar: avatarInpurRef.current.value,
     });
   }
 
@@ -26,7 +26,7 @@ const EditAvatarPopup = (props) => {
       onSubmit={handleSubmit}
     >
       <input
-        ref={avatarRef}
+        ref={avatarInpurRef}
         id="profile-input"
         type="url"
         className="form__input form__input_value_link"
