@@ -7,8 +7,8 @@ import Card from "./Card";
 function Main(props) {
     const [cards, setCards] = React.useState([]);
 
-    // объект текущего пользователя, полученный из контекста
-    const user = React.useContext(CurrentUserContext);
+    // подписали компонент на CurrentUserContext и получили значение контекста - объект текущего пользователя
+    const currentUser = React.useContext(CurrentUserContext);
 
     React.useEffect(() => {
         api.getCards()
@@ -25,12 +25,12 @@ function Main(props) {
             <section className="profile section">
                 <div className="profile__container">
                     <div className="profile__avatar-container" onClick={props.onEditAvatar}>
-                        <img src={user.avatar} alt="Аватарка" className="profile__avatar" />
+                        <img src={currentUser.avatar} alt="Аватарка" className="profile__avatar" />
                     </div>
                     <div className="profile__info">
-                        <h1 className="profile__title">{user.name}</h1>
+                        <h1 className="profile__title">{currentUser.name}</h1>
                         <button className="profile__edit-button" type="button" aria-label="Редактировать профиль" onClick={props.onEditProfile}></button>
-                        <p className="profile__subtitle">{user.about}</p>
+                        <p className="profile__subtitle">{currentUser.about}</p>
                     </div>
                 </div>
                 <button className="profile__add-button" type="button" aria-label="Добавить карточку" onClick={props.onAddPlace}></button>
