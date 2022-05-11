@@ -70,7 +70,11 @@ const App = () => {
         />
         <Footer />
 
-        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}
+          onClose={closeAllPopups}
+          onUpdateUser={handleUpdateUser}
+        />
 
         <PopupWithForm
           name="add-card"
@@ -78,11 +82,22 @@ const App = () => {
           isOpen={isAddPlacePopupOpen}
           onClose={closeAllPopups}
         >
-          <input id="place-input" type="text" className="form__input form__input_value_place" name="name"
-            placeholder="Название" minLength="2" maxLength="30" required />
+          <input
+            id="place-input"
+            type="text"
+            className="form__input form__input_value_place"
+            name="name"
+            placeholder="Название"
+            minLength="2" maxLength="30" required
+          />
           <span className="place-input-error form__input-error"></span>
-          <input id="url-input" type="url" className="form__input form__input_value_link" name="link"
-            placeholder="Ссылка на картинку" required />
+          <input
+            id="url-input"
+            type="url"
+            className="form__input form__input_value_link"
+            name="link"
+            placeholder="Ссылка на картинку" required
+          />
           <span className="url-input-error form__input-error"></span>
         </PopupWithForm>
 
@@ -92,8 +107,14 @@ const App = () => {
           isOpen={isEditAvatarPopupOpen}
           onClose={closeAllPopups}
         >
-          <input id="profile-input" type="url" className="form__input form__input_value_link" name="link"
-            placeholder="Ссылка на аватар" required />
+          <input
+            id="profile-input"
+            type="url"
+            className="form__input form__input_value_link"
+            name="link"
+            placeholder="Ссылка на аватар"
+            required
+          />
           <span className="profile-input-error form__input-error"></span>
         </PopupWithForm>
 

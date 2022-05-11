@@ -28,9 +28,15 @@ const Card = (props) => {
 
   return (
     <li className="card">
-      <img className="card__image" src={props.card.link} onClick={handleCardClick} alt={props.card.name} />
+      <img
+        className="card__image"
+        src={props.card.link}
+        onClick={handleCardClick}
+        alt={props.card.name} />
       <div className="card__container">
-        <h2 className="card__title">{props.card.name}</h2>
+        <h2 className="card__title">
+          {props.card.name}
+         </h2>
         <div className="card__like-container">
           <button
             className="card__button card__button_type_delete"
@@ -44,7 +50,9 @@ const Card = (props) => {
             type="button"
             aria-label="Поставить лайк">
           </button>
-          <span className="card__like-counter">{props.card.likes.length}</span>
+          <span className="card__like-counter">
+            {props.card.likes.length}
+          </span>
         </div>
       </div>
     </li>
