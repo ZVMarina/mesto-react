@@ -1,4 +1,4 @@
-function ImagePopup(props) {
+const ImagePopup = (props) => {
   return (
     <div className={'popup popup_type_view-image ' + `${props.card.link ? 'popup_open' : ''}`}>
       <div className="popup__container popup__container_type_image">

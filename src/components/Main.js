@@ -2,7 +2,7 @@ import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import Card from "./Card";
 
-function Main(props) {
+const Main = (props) => {
   // Подписали компонент на CurrentUserContext и получили значение контекста - объект текущего пользователя
   const currentUser = React.useContext(CurrentUserContext);
 

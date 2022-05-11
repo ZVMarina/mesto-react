@@ -1,6 +1,6 @@
 import logo from '../images/header/logo.svg';
 
-function Header() {
+const Header = () => {
     return (
         <header className="header section">
             <img src={logo} alt="Логотип сайта" className="header__logo" />
