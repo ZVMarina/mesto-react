@@ -7,13 +7,13 @@ const Card = (props) => {
   // Проверяем, является ли текущий пользователь владельцем карточки
   const isOwn = props.card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (
-    `card__button card__button_type_delete ${isOwn ? 'card__button_visible' : ''}`
+    `card__button card__button_type_delete ${!isOwn && 'card__button_hidden'}`
   );
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = props.card.likes.some(item => item._id === currentUser._id);
   const cardLikeButtonClassName = (
-    `card__button card__button_type_like ${isLiked ? 'card__button_active' : ''}`
+    `card__button card__button_type_like ${isLiked && 'card__button_active'}`
   );
 
   const handleCardClick = () => {
