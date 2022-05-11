@@ -14,20 +14,28 @@ const Card = (props) => {
   const isLiked = props.card.likes.some(item => item._id === currentUser._id);
   const cardLikeButtonClassName = `...`;
 
-  function handleClick() {
+  function handleCardClick() {
     props.onCardClick(props.card);
+  }
+
+  const handleLikeClick = () => {
+    props.onCardLike(props.card);
   }
 
   return (
     <li className="card">
-      <img className="card__image" src={props.card.link} onClick={handleClick} alt={props.card.name} />
+      <img className="card__image" src={props.card.link} onClick={handleCardClick} alt={props.card.name} />
       <div className="card__container">
         <h2 className="card__title">{props.card.name}</h2>
         <div className="card__like-container">
           <button className="card__button card__button_type_delete" type="button"
             aria-label="Удалить карточку"></button>
-          <button className="card__button card__button_type_like" type="button"
-            aria-label="Поставить лайк"></button>
+          <button
+            className="card__button card__button_type_like"
+            onClick={handleLikeClick}
+            type="button"
+            aria-label="Поставить лайк">
+          </button>
           <span className="card__like-counter">{props.card.likes.length}</span>
         </div>
       </div>

@@ -24,26 +24,26 @@ function App() {
       })
   }, [])
 
-  function onEditAvatar() {
+  const onEditAvatar = () => {
     setIsEditAvatarPopupOpen(true);
   }
 
-  function onEditProfile() {
+  const onEditProfile = () => {
     setIsEditProfilePopupOpen(true);
   }
 
-  function onAddPlace() {
+  const onAddPlace = () => {
     setIsAddPlacePopupOpen(true);
   }
 
-  function closeAllPopups() {
+  const closeAllPopups = () => {
     setIsEditAvatarPopupOpen(false);
     setIsEditProfilePopupOpen(false);
     setIsAddPlacePopupOpen(false);
     setSelectedCard({});
   }
 
-  function handleCardClick(card) {
+  const handleCardClick = (card) => {
     setSelectedCard(card);
   }
 

@@ -21,12 +21,13 @@ function Main(props) {
 
   const handleCardLike = (card) => {
     // Снова проверяем, есть ли уже лайк на этой карточке
-    const isLiked = card.likes.some(item => item._id === currentUser._id);
+    const isLiked = card.likes.some(user => user._id === currentUser._id);
 
     // Отправляем запрос в API и получаем обновлённые данные карточки
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        setCards((cardState) => cardState.map((card) => card._id === card._id ? newCard : card));
+        setCards((cardState) => cardState.map((item) => item._id === card._id ? newCard : item));
+        console.log(card);
       });
   }
 
@@ -52,6 +53,7 @@ function Main(props) {
             <Card
               card={card}
               onCardClick={props.onCardClick}
+              onCardLike={handleCardLike}
               key={card._id}
             />
           ))}
