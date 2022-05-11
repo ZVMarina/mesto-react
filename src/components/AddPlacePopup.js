@@ -22,6 +22,11 @@ const AddPlacePopup = (props) => {
     })
   }
 
+  React.useEffect(() => {
+    placeNameRef.current.value = '';
+    placeLinkRef.current.value = '';
+  }, [props.isOpen]);
+
   return (
     <PopupWithForm
       name="add-card"

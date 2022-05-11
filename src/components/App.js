@@ -67,6 +67,9 @@ const App = () => {
         setCurrentUser(user);
         closeAllPopups();
       })
+      .catch((error) => {
+        console.log('error: ', error);
+      })
   }
 
   const handleUpdateAvatar = ({ avatar }) => {
@@ -74,6 +77,9 @@ const App = () => {
       .then((user) => {
         setCurrentUser(user);
         closeAllPopups();
+      })
+      .catch((error) => {
+        console.log('error: ', error);
       })
   }
 
