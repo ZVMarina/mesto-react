@@ -48,6 +48,14 @@ const App = () => {
     setSelectedCard(card);
   }
 
+  const handleUpdateUser = ({ name, about }) => {
+    api.changeProfile(name, about)
+      .then((user) => {
+        setCurrentUser(user);
+        closeAllPopups();
+      })
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
@@ -62,7 +70,7 @@ const App = () => {
         />
         <Footer />
 
-        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
 
         <PopupWithForm
           name="add-card"

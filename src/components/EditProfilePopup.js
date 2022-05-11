@@ -15,12 +15,32 @@ const EditProfilePopup = (props) => {
     setDescription(currentUser?.about);
   }, [currentUser]);
 
+  const handleChangeName = (e) => {
+    setName(e.target.value);
+  }
+
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value);
+  }
+
+  const handleSubmit = (evt) => {
+    // Запрещаем браузеру переходить по адресу формы
+    evt.preventDefault();
+
+    // Передаём значения управляемых компонентов во внешний обработчик
+    props.onUpdateUser({
+      name,
+      about: description,
+    });
+  }
+
   return (
     <PopupWithForm
       name="edit-info"
       title="Редактировать профиль"
       isOpen={props.isOpen}
       onClose={props.onClose}
+      onSubmit={handleSubmit}
     >
       <input
         className="form__input form__input_value_name"
@@ -28,6 +48,7 @@ const EditProfilePopup = (props) => {
         type="text"
         name="name"
         value={name}
+        onChange={handleChangeName}
         minLength="2" maxLength="40" required
       />
       <span className="name-input-error form__input-error"></span>
@@ -37,6 +58,7 @@ const EditProfilePopup = (props) => {
         type="text"
         name="job"
         value={description}
+        onChange={handleChangeDescription}
         minLength="2" maxLength="200" required
       />
       <span className="job-input-error form__input-error"></span>
