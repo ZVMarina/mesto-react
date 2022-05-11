@@ -7,12 +7,14 @@ const Card = (props) => {
   // Проверяем, является ли текущий пользователь владельцем карточки
   const isOwn = props.card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (
-    `card__delete-button ${isOwn ? 'card__delete-button_visible' : 'card__delete-button_hidden'}`
+    `card__button card__button_type_delete ${isOwn ? 'card__button_visible' : 'card__button_hidden'}`
   );
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
   const isLiked = props.card.likes.some(item => item._id === currentUser._id);
-  const cardLikeButtonClassName = `...`;
+  const cardLikeButtonClassName = (
+    `card__button card__button_type_like ${isLiked ? 'card__button_active' : ''}`
+  );
 
   const handleCardClick = () => {
     props.onCardClick(props.card);
@@ -36,7 +38,7 @@ const Card = (props) => {
       <div className="card__container">
         <h2 className="card__title">
           {props.card.name}
-         </h2>
+        </h2>
         <div className="card__like-container">
           <button
             className="card__button card__button_type_delete"
@@ -45,7 +47,7 @@ const Card = (props) => {
             onClick={handleDeleteClick}>
           </button>
           <button
-            className="card__button card__button_type_like"
+            className={cardLikeButtonClassName}
             onClick={handleLikeClick}
             type="button"
             aria-label="Поставить лайк">
