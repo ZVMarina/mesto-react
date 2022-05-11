@@ -6,8 +6,9 @@ import PopupWithForm from './PopupWithForm';
 import ImagePopup from './ImagePopup';
 import { api } from "../utils/Api";
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
+import EditProfilePopup from './EditProfilePopup';
 
-function App() {
+const App = () => {
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = React.useState(false);
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false);
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false);
@@ -60,19 +61,8 @@ function App() {
           currentUser={currentUser}
         />
         <Footer />
-        <PopupWithForm
-          name="edit-info"
-          title="Редактировать профиль"
-          isOpen={isEditProfilePopupOpen}
-          onClose={closeAllPopups}
-        >
-          <input id="name-input" type="text" className="form__input form__input_value_name" name="name"
-            minLength="2" maxLength="40" required />
-          <span className="name-input-error form__input-error"></span>
-          <input id="job-input" type="text" className="form__input form__input_value_job" name="job" minLength="2"
-            maxLength="200" required />
-          <span className="job-input-error form__input-error"></span>
-        </PopupWithForm>
+
+        <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} />
 
         <PopupWithForm
           name="add-card"

@@ -27,7 +27,13 @@ function Main(props) {
     api.changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
         setCards((cardState) => cardState.map((item) => item._id === card._id ? newCard : item));
-        console.log(card);
+      });
+  }
+
+  const handleCardDelete = (card) => {
+    api.deleteCard(card._id)
+      .then(() => {
+        setCards((cardState) => cardState.filter((item) => item._id !== card._id));
       });
   }
 
@@ -35,26 +41,40 @@ function Main(props) {
     <main className="content" >
       <section className="profile section">
         <div className="profile__container">
-          <div className="profile__avatar-container" onClick={props.onEditAvatar}>
+          <div
+            className="profile__avatar-container"
+            onClick={props.onEditAvatar}
+          >
             <img src={currentUser?.avatar} alt="Аватарка" className="profile__avatar" />
           </div>
           <div className="profile__info">
             <h1 className="profile__title">{currentUser?.name}</h1>
-            <button className="profile__edit-button" type="button" aria-label="Редактировать профиль" onClick={props.onEditProfile}></button>
+            <button
+              className="profile__edit-button"
+              type="button"
+              aria-label="Редактировать профиль"
+              onClick={props.onEditProfile}>
+            </button>
             <p className="profile__subtitle">{currentUser?.about}</p>
           </div>
         </div>
-        <button className="profile__add-button" type="button" aria-label="Добавить карточку" onClick={props.onAddPlace}></button>
+        <button
+          className="profile__add-button"
+          type="button"
+          aria-label="Добавить карточку"
+          onClick={props.onAddPlace}>
+        </button>
       </section>
 
       <section className="elements section" aria-label="Фото-карточки мест, где я был">
         <ul className="elements__cards">
           {cards.map((card) => (
             <Card
+              key={card._id}
               card={card}
               onCardClick={props.onCardClick}
               onCardLike={handleCardLike}
-              key={card._id}
+              onCardDelete={handleCardDelete}
             />
           ))}
         </ul>
