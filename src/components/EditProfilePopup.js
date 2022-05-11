@@ -1,7 +1,20 @@
 import React from 'react';
+import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import PopupWithForm from "./PopupWithForm"
 
 const EditProfilePopup = (props) => {
+  const [name, setName] = React.useState('');
+  const [description, setDescription] = React.useState('');
+
+  // Подписка на контекст
+  const currentUser = React.useContext(CurrentUserContext);
+
+  // После загрузки текущего пользователя из API его данные будут использованы в управляемых компонентах.
+  React.useEffect(() => {
+    setName(currentUser?.name);
+    setDescription(currentUser?.about);
+  }, [currentUser]);
+
   return (
     <PopupWithForm
       name="edit-info"
@@ -9,11 +22,23 @@ const EditProfilePopup = (props) => {
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
-      <input id="name-input" type="text" className="form__input form__input_value_name" name="name"
-        minLength="2" maxLength="40" required />
+      <input
+        className="form__input form__input_value_name"
+        id="name-input"
+        type="text"
+        name="name"
+        value={name}
+        minLength="2" maxLength="40" required
+      />
       <span className="name-input-error form__input-error"></span>
-      <input id="job-input" type="text" className="form__input form__input_value_job" name="job" minLength="2"
-        maxLength="200" required />
+      <input
+        className="form__input form__input_value_job"
+        id="job-input"
+        type="text"
+        name="job"
+        value={description}
+        minLength="2" maxLength="200" required
+      />
       <span className="job-input-error form__input-error"></span>
     </PopupWithForm>
   )
