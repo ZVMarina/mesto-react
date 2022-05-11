@@ -7,7 +7,7 @@ const Card = (props) => {
   // Проверяем, является ли текущий пользователь владельцем карточки
   const isOwn = props.card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (
-    `card__button card__button_type_delete ${isOwn ? 'card__button_visible' : 'card__button_hidden'}`
+    `card__button card__button_type_delete ${isOwn ? 'card__button_visible' : ''}`
   );
 
   // Определяем, есть ли у карточки лайк, поставленный текущим пользователем
@@ -41,7 +41,7 @@ const Card = (props) => {
         </h2>
         <div className="card__like-container">
           <button
-            className="card__button card__button_type_delete"
+            className={cardDeleteButtonClassName}
             type="button"
             aria-label="Удалить карточку"
             onClick={handleDeleteClick}>
