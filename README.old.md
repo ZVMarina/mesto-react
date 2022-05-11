@@ -16,4 +16,4 @@ Training project (Yandex Practicum). It consists of 4 blocks. The file structure
 
 ### Link to GitHub Pages
 
-[https://zvmarina.github.io/mesto/](https://zvmarina.github.io/mesto/ "Место")
+[https://zvmarina.github.io/mesto/](https://zvmarina.github.io/mesto-react/ "Место")
